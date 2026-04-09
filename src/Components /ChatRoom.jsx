@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import MovingBorder from "./MovingBorder";
 
 const ChatRoom = ({ username, room, socket, onLeave }) => {
   const [message, setMessage] = useState("");
@@ -46,15 +45,13 @@ const ChatRoom = ({ username, room, socket, onLeave }) => {
         ))}
       </div>
       <form className="chat-input-form" onSubmit={handleSend}>
-        <MovingBorder borderRadius="8px" duration="2.5s">
-          <input
-            type="text"
-            placeholder="Type a message..."
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-            autoFocus
-          />
-        </MovingBorder>
+        <input
+          type="text"
+          placeholder="Type a message..."
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+          autoFocus
+        />
         <button type="submit">Send</button>
       </form>
     </div>

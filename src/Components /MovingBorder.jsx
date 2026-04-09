@@ -1,13 +1,9 @@
-import { useRef, useEffect } from "react";
 import "./MovingBorder.css";
 
-const MovingBorder = ({ children, className = "", borderRadius = "6px", duration = "3s" }) => {
-  const borderRef = useRef(null);
-
+const MovingBorder = ({ children, className = "", borderRadius = "12px", duration = "3s" }) => {
   return (
     <div className={`moving-border-wrapper ${className}`} style={{ borderRadius }}>
       <div 
-        ref={borderRef} 
         className="moving-border-gradient" 
         style={{ 
           borderRadius,

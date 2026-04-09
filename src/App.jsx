@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import ChatRoom from "./Components /ChatRoom";
+import MovingBorder from "./Components /MovingBorder";
 import "./App.css";
 import { io } from "socket.io-client";
 
@@ -47,22 +48,26 @@ function App() {
     <>
       {joined == false ? (
         <div className="join-group-container">
-          <h2 style={{ color: "black" }}>Join a Chat Group</h2>
+          <h2>Join a Chat Group</h2>
           <form className="join-group-form" onSubmit={handleSubmit}>
-            <input
-              type="text"
-              placeholder="Username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              required
-            />
-            <input
-              type="text"
-              placeholder="Group Name"
-              value={room}
-              onChange={(e) => setRoom(e.target.value)}
-              required
-            />
+            <MovingBorder borderRadius="8px" duration="2.5s">
+              <input
+                type="text"
+                placeholder="Username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                required
+              />
+            </MovingBorder>
+            <MovingBorder borderRadius="8px" duration="2.5s">
+              <input
+                type="text"
+                placeholder="Group Name"
+                value={room}
+                onChange={(e) => setRoom(e.target.value)}
+                required
+              />
+            </MovingBorder>
             <button type="submit">Join</button>
           </form>
         </div>
